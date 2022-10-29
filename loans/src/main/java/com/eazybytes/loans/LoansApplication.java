@@ -9,6 +9,8 @@ import org.springframework.context.annotation.ComponentScans;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+// when you want to change the prop file and not to restart of initialize the whole services again 
+// just reload the prop file 
 @RefreshScope
 @ComponentScans({ @ComponentScan("com.eazybytes.loans.controller") })
 @EnableJpaRepositories("com.eazybytes.loans.repository")

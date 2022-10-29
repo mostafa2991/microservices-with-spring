@@ -77,9 +77,10 @@ public class AccountsController {
 		return jsonStr;
 	}
 
-	
+//	creating Circuit Breaker pattern
 	@PostMapping("/myCustomerDetails")
 	@CircuitBreaker(name = "detailsForCustomerSupportApp",fallbackMethod ="myCustomerDetailsFallBack")
+//	creating @Retry pattern
 	@Retry(name = "retryForCustomerDetails", fallbackMethod = "myCustomerDetailsFallBack")
 	public CustomerDetails myCustomerDetails(@RequestHeader("eazybank-correlation-id") String correlationid,@RequestBody Customer customer) {
 		logger.info("myCustomerDetails() method started");
@@ -105,7 +106,7 @@ public class AccountsController {
 		return customerDetails;
 
 	}
-
+//	creating @RateLimiter pattern max number of requests  
 	@GetMapping("/sayHello")
 	@RateLimiter(name = "sayHello", fallbackMethod = "sayHelloFallback")
 	public String sayHello() {

@@ -18,6 +18,8 @@ import lombok.ToString;
  *
  */
 @Configuration
+// after reaching the gfile in git 
+// read all with prefix loans inside the file
 @ConfigurationProperties(prefix = "loans")
 @Getter @Setter @ToString
 public class LoansServiceConfig {
