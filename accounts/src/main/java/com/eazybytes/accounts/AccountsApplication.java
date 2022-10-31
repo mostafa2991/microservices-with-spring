@@ -24,7 +24,7 @@ public class AccountsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AccountsApplication.class, args);
 	}
-	
+//	by this u can send info to prometheus dash board => use time like how much time my method or api to make request
 	@Bean
 	public TimedAspect timedAspect(MeterRegistry registry) {
 	    return new TimedAspect(registry);
