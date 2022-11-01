@@ -4,6 +4,10 @@ metadata:
   name: zipkin-deployment
   labels:
     app: zipkin
+#what u try to deploy 
+# u have 2 config => Deployment & Service
+#service => u want to expose your service to out side or want to add some restrictions
+#--- => difide the file so it will make it as 2 files    
 spec:
   replicas: 1
   selector:

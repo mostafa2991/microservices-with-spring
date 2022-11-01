@@ -18,10 +18,10 @@ spec:
       - name: configserver
         image: eazybytes/configserver:latest
         ports:
-        - containerPort: 8071
-        env:
-        - name: SPRING_ZIPKIN_BASEURL
-          valueFrom: 
+        - containerPort: 8071  # same of target port
+        env:                          #this to tell that it has to connect with zipkin and under which profile it has to run 
+        - name: SPRING_ZIPKIN_BASEURL # this config u have to handle using config inside k8s 
+          valueFrom:                  #config map in k8s help to have the vaiables and secrets 
             configMapKeyRef:
               name: eazybank-configmap
               key: SPRING_ZIPKIN_BASEURL
